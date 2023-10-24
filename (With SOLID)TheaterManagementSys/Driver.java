@@ -4,10 +4,12 @@ import java.util.Scanner;
 class Driver {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        TheatreManagement theatre = new TheatreManagement("ABC Theatre", "CityName", 5);
+        TheatreManagement theatre = new TheatreManagement("Demo Theatre", "Lahore", 5);
 
         while (true) {
-            System.out.println("========= Theatre Management System Menu =========");
+            // System.out.flush();
+            System.out.println("======================================================");
+            System.out.println("Theatre Management System Menu");
             System.out.println("1. Check if the theatre is open");
             System.out.println("2. Display list of movies");
             System.out.println("3. Add a movie");
@@ -18,7 +20,10 @@ class Driver {
             System.out.println("8. Add shop details");
             System.out.println("9. Add operator room details");
             System.out.println("10. Add restroom details");
+            System.out.println("11. To see ticket at counter");
+
             System.out.println("0. Exit");
+            System.out.println("======================================================");
 
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
@@ -65,6 +70,11 @@ class Driver {
                     RestRoom restRoom = createRestRoom(scanner);
                     theatre.addRestRoom(restRoom);
                     break;
+                case 11:
+                    int index_=printTicketat(scanner);
+                    theatre.showTicketat(index_);
+                    break;
+                
                 case 0:
                     System.out.println("Exiting");
                     System.exit(0);
@@ -74,19 +84,23 @@ class Driver {
             }
         }
     }
-
+        private static int printTicketat(Scanner scanner) {
+        System.out.print("At which counter you want to see tickets (int): ");
+        int i = scanner.nextInt();
+        return i;
+    }
     private static Movie createMovie(Scanner scanner) {
-        System.out.print("Enter Movie ID: ");
+                System.out.print("Ener movie id (int): ");
         int movieId = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Enter Movie Name: ");
         String movieName = scanner.nextLine();
         System.out.print("Enter Genre: ");
         String genre = scanner.nextLine();
-        System.out.print("Enter Duration: ");
+        System.out.print("Enter Duration (int) : ");
         int duration = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Enter Hall Number: ");
+        System.out.print("Enter Hall Number (int): ");
         int hallNumber = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Enter Timings: ");
@@ -96,25 +110,25 @@ class Driver {
     }
 
     private static Hall createHall(Scanner scanner) {
-        System.out.print("Enter Hall ID: ");
+        System.out.print("Enter Hall ID (int) : ");
         int hallId = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Enter Hall Name: ");
         String hallName = scanner.nextLine();
-        System.out.print("Enter Movie ID: ");
+        System.out.print("Enter Movie ID (int) : ");
         int movieId = scanner.nextInt();
         scanner.nextLine();
 
-        return new Hall(hallId, hallName, movieId, null);
+        return new Hall(hallId, hallName, movieId,null);
     }
 
     private static Employee createEmployee(Scanner scanner) {
-        System.out.print("Enter Employee ID: ");
+        System.out.print("Enter Employee ID (int) : ");
         int employeeId = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Enter Employee Name: ");
         String employeeName = scanner.nextLine();
-        System.out.print("Enter Salary: ");
+        System.out.print("Enter Salary (sallary): ");
         double salary = scanner.nextDouble();
         scanner.nextLine();
         System.out.print("Enter Designation (Technical Operator or Support Staff): ");
@@ -131,18 +145,18 @@ class Driver {
     }
 
     private static TicketCounter createTicketCounter(Scanner scanner) {
-        System.out.print("Enter Ticket ID: ");
+        System.out.print("Enter Ticket ID (int) : ");
         int ticketId = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Enter Customer ID: ");
+        System.out.print("Enter Customer ID (int) : ");
         int customerId = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Enter Hall ID: ");
+        System.out.print("Enter Hall ID (int) : ");
         int hallId = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Enter Movie Name: ");
         String movieName = scanner.nextLine();
-        System.out.print("Enter Ticket Price: ");
+        System.out.print("Enter Ticket Price (double): ");
         double ticketPrice = scanner.nextDouble();
         scanner.nextLine();
 
@@ -150,10 +164,10 @@ class Driver {
     }
 
     private static Parking createParking(Scanner scanner) {
-        System.out.print("Enter Total Parking Slots: ");
+        System.out.print("Enter Total Parking Slots (int) : ");
         int totalSlots = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Enter Occupied Parking Slots: ");
+        System.out.print("Enter Occupied Parking Slots (int) : ");
         int slotsOccupied = scanner.nextInt();
         scanner.nextLine();
 
@@ -161,10 +175,10 @@ class Driver {
     }
 
     private static Shops createShop(Scanner scanner) {
-        System.out.print("Enter Shop ID: ");
+        System.out.print("Enter Shop ID (int) : ");
         int shopId = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Enter Employee ID: ");
+        System.out.print("Enter Employee ID (int) : ");
         int employeeId = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Enter Shop Name: ");
@@ -174,12 +188,12 @@ class Driver {
     }
 
     private static OperatorRoom createOperatorRoom(Scanner scanner) {
-        System.out.print("Enter Incharge ID: ");
+        System.out.print("Enter Incharge ID (int) : ");
         int inchargeId = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Enter Incharge Name: ");
         String inchargeName = scanner.nextLine();
-        System.out.print("Enter Hall ID: ");
+        System.out.print("Enter Hall ID (int) : ");
         int hallId = scanner.nextInt();
         scanner.nextLine();
 
@@ -187,7 +201,7 @@ class Driver {
     }
 
     private static RestRoom createRestRoom(Scanner scanner) {
-        System.out.print("Enter Number of Slots: ");
+        System.out.print("Enter Number of Slots (int) : ");
         int noOfSlots = scanner.nextInt();
         scanner.nextLine();
 

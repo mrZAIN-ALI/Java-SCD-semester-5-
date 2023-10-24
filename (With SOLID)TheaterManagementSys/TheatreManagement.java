@@ -33,8 +33,14 @@ class TheatreManagement {
     }
 
     public void displayMovies() {
-        for (Movie movie : movieList) {
-            System.out.println("Movie: " + movie.getMovieName());
+        if(movieList.isEmpty()){
+            System.out.println("No movie abailable please add some :)");
+
+        }else{
+
+            for (Movie movie : movieList) {
+                System.out.println("Movie: " + movie.getMovieName());
+            }
         }
     }
 
@@ -69,50 +75,33 @@ class TheatreManagement {
     public void addRestRoom(RestRoom restRoom) {
         restRooms.add(restRoom);
     }
+        public void showTicketat(int i) {
+            if(i<ticketCounters.size() || i>ticketCounters.size()){
+                System.out.println("Please select vaild counter number available "+ticketCounters.size());
+                return;
+            }
+        ticketCounters.get(i-1).showTickets();;
+    }
 }
 
 
+class Customer {
+    private int customerId;
+    private String customerName;
+    private int customerAge;
+    private String customerGender;
 
+    public Customer(int customerId, String customerName, int customerAge, String customerGender) {
+        this.customerId = customerId;
+        this.customerName = customerName;
+        this.customerAge = customerAge;
+        this.customerGender = customerGender;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// public class Main {
-//     public static void main(String[] args) {
-//         TheatreManagement theatre = new TheatreManagement("ABC Theatre", "CityName", 5);
-
-//         Movie movie1 = new Movie(1, "Movie 1", "Action", 120, 1, "10:00 AM, 1:00 PM");
-//         theatre.addMovie(movie1);
-
-//         Hall hall1 = new Hall(1, "Hall 1", 1);
-        
-//         Employee techOperator = new TechnicalOperator(1, "Tech Operator 1", 5000);
-//         Employee supportStaff = new SupportStaff(2, "Support Staff 1", 3000);
-
-//         theatre.addHall(hall1);
-//         theatre.addEmployee(techOperator);
-//         theatre.addEmployee(supportStaff);
-
-//         // Display theatre status
-//         boolean isOpen = theatre.isTheatreOpen();
-//         System.out.println("Is the theatre open? " + isOpen);
-//         System.out.println("Movies currently playing:");
-//         theatre.displayMovies();
-//     }
-// }
+    public void customerDetails() {
+        System.out.println("Customer ID: " + customerId);
+        System.out.println("Customer Name: " + customerName);
+        System.out.println("Customer Age: " + customerAge);
+        System.out.println("Customer Gender: " + customerGender);
+    }
+}

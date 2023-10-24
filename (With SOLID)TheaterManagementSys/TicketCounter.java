@@ -22,6 +22,7 @@ class TicketCounter {
     }
 
     public void bookTickets() {
-        // Implement ticket booking logic
+                System.out.println("Ticket Price: " + ticketPrice);
     }
+
 }

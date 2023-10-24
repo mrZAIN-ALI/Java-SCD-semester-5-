@@ -1,0 +1,9 @@
+1. **Single Responsibility Principle (SRP)**: Each class in  code seems to have a single responsibility. For example, the `TheatreManagement` class manages the theater, the `Movie` class represents a movie, and the `TechnicalOperator` and `SupportStaff` classes represent employees. So, SRP appears to be followed.
+
+2. **Open/Closed Principle (OCP)**: This code  explicitly demonstrate the open/closed principle. In an ideal implementation of this principle, classes should be open for extension but closed for modification. However, it is difficult to evaluate this aspect fully as the code you provided doesn't show any extensions or interfaces that allow for easy extension.
+
+3. **Liskov Substitution Principle (LSP)**: This code doesn't show any clear use of inheritance, so the Liskov Substitution Principle doesn't seem to be relevant in this context.
+
+4. **Interface Segregation Principle (ISP)**: This code uses interfaces (e.g., `Employee`), and the implementing classes (`TechnicalOperator` and `SupportStaff`) seem to implement only the methods relevant to them. Therefore, it appears that ISP is being followed.
+
+5. **Dependency Inversion Principle (DIP)**: This code is composed of multiple classes, and you use dependency injection in the constructor of `TheatreManagement` to create and manage various objects like movies, employees, halls, etc. This promotes loose coupling, which is in line with the Dependency Inversion Principle.
